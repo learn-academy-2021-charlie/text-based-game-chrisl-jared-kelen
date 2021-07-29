@@ -63,7 +63,7 @@ def approach_the_automaton
   player_move == 3 && kill_everyone
 end
 
-def ignore_the_robot 
+def ignore_the_robot
   delayed_print 'You ignore the robot and head into the city alone'
   enter_city_with_robot
 end
@@ -76,10 +76,10 @@ end
 def enter_city_with_robot
   delayed_print 'You encounter a ranger named Austin Walker Texas Ranger'
   puts
-  puts '1: Ignore the ranger' 
+  puts '1: Ignore the ranger'
   puts '2: Try to befriend him'
   puts '3: Attack him'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && continue_exploring
   player_move == 2 && fight_ranger_w_robot
   player_move == 3 && fight_ranger_w_robot
@@ -92,14 +92,14 @@ def fight_ranger_w_robot
   continue_exploring
 end
 
-def continue_exploring 
+def continue_exploring
   puts
   delayed_print 'You find a ghoul that waves you over'
   puts
   puts '1: Ignore the ghoul'
   puts '2: Walk over to the ghoul'
   puts '3: Attack the ghoul.'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && continue_into_city
   player_move == 2 && ghoul_riddle
   player_move == 3 && kill_everyone
@@ -108,13 +108,13 @@ end
 def ghoul_riddle
   delayed_print 'The ghoul tells you that you will recieve a prize if you solve this riddle:'
   puts
-  delayed_print "Double my number, I'm less than a score, Half of my number is less than four. 
+  delayed_print "Double my number, I'm less than a score, Half of my number is less than four.
   Add one to my double when bakers are near, Days of the week are still greater, I fear."
   puts
   puts '1: Twelve'
   puts '2: Six'
   puts '3: Attack the ghoul.'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && ghoul_attacks
   player_move == 2 && ghoul_prize
   player_move == 3 && kill_everyone
@@ -126,13 +126,14 @@ def ghoul_attacks
 end
 
 def ghoul_prize
-puts <<-'EOF' 
-,________________________________       
+puts <<-'EOF'
+,________________________________
 |__________,----------._ [____]  ""-,__  __...-----==="
         (_(||||||||||||)___________/   ""             |
            `----------'        [ ))"-,                |
                                 ""    `,  _,--...___  |
-                                        `/          """" EOF
+                                        `/          """"
+EOF
   delayed_print 'Here is your prize'
   continue_into_city_gun
 end
@@ -142,41 +143,53 @@ def continue_into_city_gun
     puts
   puts '1: Attack the scavenger and take their belongings.'
   puts '2: Befriend the scavenger.'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && attack_scavenger
   player_move == 2 && befriend_scavenger
 end
 
 def attack_scavenger
   delayed_print 'You shoot the scavenger who dies immediately.'
+  puts
   delayed_print 'You take food and ammo off the scavenger and continue on your journey.'
+  puts
   see_building
 end
 
 def see_building
   delayed_print 'There is a building in front of you, you see an open door ...'
-    puts
+  puts
   delayed_print 'What do you do?'
+  puts
   puts '1: Enter the building'
   puts '2: Walk away'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && inside_building
   player_move == 2 && piano_death
 end
 
 def inside_building
   delayed_print 'You see a closed hermetic door and a hallway that leads to the left to bypass the door'
+  puts
   delayed_print 'You notice a terminal on the wall with a cable that leads to the door'
+  puts
   delayed_print 'Which direction do you choose?'
+  puts
   puts '1: Ask the robot to open the terminal'
   puts '2: Go through the hallway'
-  player_move = gets.to_i 
+  player_move = gets.to_i
   player_move == 1 && terminal_config
   player_move == 2 && hallway_death
 end
 
 def terminal_config
-  delayed_print ''
+  delayed_print 'Your robot joyfully accesses the terminal and uses it to open the sealed door'
+  puts
+  delayed_print 'You enter the newly opened path and walk down the stairs, only to find yourself once again in the Vault!'
+  puts
+  delayed_print "Your gun and robot have mysteriously vanished."
+  puts
+  game_start
 end
 
 def hallway_death
@@ -184,7 +197,20 @@ def hallway_death
 end
 
 def piano_death
-  delayed_print 'A random piano falls from the top of the building and lands on you.'
+  puts <<- 'EOF'
+'             _____
+           | |   \
+           | |    \
+           | |     \___
+           | |         \
+           | |          \
+          _|_|___________|
+        //____|___________)
+       |__________________|
+        | )(            )(
+       :| )(            )('
+  EOF
+  delayed_print 'A random piano falls from the top of the building and lands on you. You die immediately.'
 end
 
 def befriend_scavenger
@@ -209,16 +235,11 @@ def continue_into_city
       |  |  |
        | | |
        | | |
-      _|_|_|_' EOF
+      _|_|_|_'
+  EOF
   delayed_print 'You run into a hostile scavenger and he shoots you down.'
 end
 
-def 
-
-def ignore_the_robot
-  delayed_print 'You ignore the robot and enter the city'
-  ghoul_riddle
-end
 
 def walk_the_road
   puts <<-'EOF'
@@ -289,7 +310,7 @@ end
 def delayed_print string
   string.each_char do |char|
     putc char
-    sleep 0.03
+    sleep 0.015
   end
 end
 
