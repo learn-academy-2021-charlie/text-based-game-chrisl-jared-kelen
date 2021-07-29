@@ -87,10 +87,12 @@ end
 
 def fight_ranger_w_robot
   delayed_print 'The ranger knocks you to the ground, but the robot defeats him'
+  delayed_print 'You continue exploring the city with the robot'
   continue_exploring
 end
 
 def continue_exploring 
+  puts
   delayed_print 'You find a ghoul, he defeats you and the robot'
 end
 
@@ -126,8 +128,43 @@ __/_______\________\__\_/________\_ _/_____/_____________/_______\____/_______
   puts '1: Continue to the mountains'
   puts '2: Enter the flatlands'
   player_move = gets.to_i
-  player_move == 1 && puts 'You find a cabin and live out your days happily'
-  player_move == 2 && puts 'You have ran out of water and you died of dehydration'
+  player_move == 1 && puts('You find a cabin and live out your days happily')
+  player_move == 2 && puts('You have ran out of water and you died of dehydration')
+end
+
+def ignore_the_robot
+  delayed_print 'You ignore the robot and head into the city alone'
+  enter_city_wo_robot
+end
+def enter_city_wo_robot
+  delayed_print 'You encounter a ranger named Austin Walker Texas Ranger'
+  puts
+  puts '1: Ignore the ranger'
+  puts '2: Try to befriend him'
+  puts '3: Attack him'
+  player_move = gets.to_i
+  player_move == 1 && continue_exploring
+  player_move == 2 && fight_ranger_wo_robot
+  player_move == 3 && fight_ranger_wo_robot
+end
+def fight_ranger_wo_robot
+  delayed_print 'Austin Walker Texas Ranger knocks you down and towers over your dead body'
+end
+def befriend_the_robot
+  delayed_print 'You befriend the robot and enter the city'
+  puts
+  enter_city_with_robot
+end
+def enter_city_with_robot
+  delayed_print 'You encounter a ranger named Austin Walker Texas Ranger'
+  puts
+  puts '1: Ignore the ranger'
+  puts '2: Try to befriend him'
+  puts '3: Attack him'
+  player_move = gets.to_i
+  player_move == 1 && continue_exploring
+  player_move == 2 && fight_ranger_w_robot
+  player_move == 3 && fight_ranger_w_robot
 end
 
 def delayed_print string
