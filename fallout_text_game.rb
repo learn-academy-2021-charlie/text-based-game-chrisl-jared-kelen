@@ -63,6 +63,42 @@ def approach_the_automaton
   player_move == 3 && kill_everyone
 end
 
+def ignore_the_robot 
+  delayed_print 'You ignore the robot and head into the city alone'
+  enter_city_with_robot
+end
+
+def befriend_the_robot
+  delayed_print 'You befriend the robot and enter the city'
+  enter_city_with_robot
+end
+
+def enter_city_with_robot
+  delayed_print 'You encounter a ranger named Austin Walker Texas Ranger'
+  puts
+  puts '1: Ignore the ranger' 
+  puts '2: Try to befriend him'
+  puts '3: Attack him'
+  player_move = gets.to_i 
+  player_move == 1 && continue_exploring
+  player_move == 2 && fight_ranger_w_robot
+  player_move == 3 && fight_ranger_w_robot
+end
+
+def fight_ranger_w_robot
+  delayed_print 'The ranger knocks you to the ground, but the robot defeats him'
+  continue_exploring
+end
+
+def continue_exploring 
+  delayed_print 'You find a ghoul, he defeats you and the robot'
+end
+
+def ignore_the_robot
+  delayed_print 'You ignore the robot and enter the city'
+  explore_the_town 
+end
+
 def walk_the_road
   puts <<-'EOF'
                                                  _
@@ -90,8 +126,8 @@ __/_______\________\__\_/________\_ _/_____/_____________/_______\____/_______
   puts '1: Continue to the mountains'
   puts '2: Enter the flatlands'
   player_move = gets.to_i
-  player_move == 1 && go_to_mountains
-  player_move == 2 && walk_the_flatlands
+  player_move == 1 && puts 'You find a cabin and live out your days happily'
+  player_move == 2 && puts 'You have ran out of water and you died of dehydration'
 end
 
 def delayed_print string
